@@ -8,9 +8,9 @@ const buttonNumber = Array(10).fill().map((_, i) => i).concat(
   OPERATIONS,
 );
 
-// textarea.oninput = (e) => {
-//   console.log(e);
-// }
+textarea.onkeydown = (e) => {
+  !/\d+|Backspace|Arrow+/.test(e.key) && e.preventDefault()
+}
 
 buttonNumber.forEach((btn) => {
   let button = document.createElement("button");
