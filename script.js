@@ -25,6 +25,7 @@ BUTTONS.forEach((btn) => {
         case "/":
         case "+":
         case "-":
+            button.classList.add("operation");
             button.onclick = (evt) => {
                 let lastString = textarea.value.slice(-1);
                 let target = evt.target;

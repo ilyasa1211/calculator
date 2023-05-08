@@ -40,6 +40,7 @@ BUTTONS.forEach((btn: string) => {
     case "/":
     case "+":
     case "-":
+      button.classList.add("operation")
       button.onclick = (evt: MouseEvent) => {
         let lastString: string = textarea.value.slice(-1);
         let target = evt.target as HTMLElement;
@@ -77,7 +78,9 @@ function evaluate(rawValue: string): number {
   const operand: Array<number> = arrValue.filter((_) => /\d+/.test(_)).map(
     (_) => Number(_),
   );
-  const operation: Array<string> = arrValue.filter((_) => /\+|\-|\x|\//g.test(_));
+  const operation: Array<string> = arrValue.filter((_) =>
+    /\+|\-|\x|\//g.test(_)
+  );
   let index = 0;
   while (index < operation.length) {
     if (["x", "/"].find((_) => _ === operation[index])) {
